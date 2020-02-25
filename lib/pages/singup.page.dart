@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layouts/pages/home.page.dart';
 
 class SignupPage extends StatelessWidget {
   @override
@@ -79,7 +80,10 @@ class SignupPage extends StatelessWidget {
                     ),
                   ),
                   child: FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
+                    },
                     child: Text(
                       "Sign up",
                       style: TextStyle(color: Colors.white),

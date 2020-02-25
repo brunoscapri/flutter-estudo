@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layouts/pages/home.page.dart';
 import 'package:layouts/pages/singup.page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -121,7 +122,12 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         child: FlatButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()));
+                          },
                           child: Text("Sign in"),
                         ),
                       )
