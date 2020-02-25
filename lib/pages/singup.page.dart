@@ -12,7 +12,7 @@ class SignupPage extends StatelessWidget {
         child: Container(
           color: Color(0xFFF5F5F5),
           padding: EdgeInsets.only(
-            top: 80,
+            top: 40,
             left: 20,
             right: 20,
             bottom: 40,
@@ -35,6 +35,7 @@ class SignupPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Padding(padding: EdgeInsets.only(top: 30)),
                 Text(
                   "Sign up",
                   style: TextStyle(
@@ -54,7 +55,13 @@ class SignupPage extends StatelessWidget {
                   height: 10,
                 ),
                 TextFormField(
-                  autofocus: true,
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(labelText: "Name"),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
                   obscureText: true,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(labelText: "Password"),
@@ -64,13 +71,20 @@ class SignupPage extends StatelessWidget {
                 ),
                 Container(
                   width: double.infinity,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(6),
+                    ),
+                  ),
                   child: FlatButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Sign up",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: Colors.blue),
+                    onPressed: () {},
+                    child: Text(
+                      "Sign up",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 )
               ],
             ),
