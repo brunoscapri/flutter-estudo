@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layouts/pages/cart.page.dart';
 
 class ProductPage extends StatelessWidget {
   @override
@@ -48,6 +49,27 @@ class ProductPage extends StatelessWidget {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
+              Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Container(
+                    color: Colors.blue,
+                    child: FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CartPage()));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Icon(Icons.shopping_cart),
+                            Container(
+                                padding: EdgeInsets.only(left: 115),
+                                child: Text("Add to cart")),
+                          ],
+                        )),
+                  )),
             ],
           ),
         ),
