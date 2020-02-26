@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:layouts/pages/product.page.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: Container(
         child: Container(
           color: Colors.white,
           child: Padding(
@@ -26,9 +27,41 @@ class HomePage extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 Container(
                   height: 90,
                   child: categoryList(),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      "Best Selling",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    FlatButton(
+                      onPressed: () {},
+                      child: Text(
+                        "See All",
+                        style: TextStyle(color: Colors.blue),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 350,
+                  child: productList(context),
                 )
               ],
             ),
@@ -110,8 +143,75 @@ Widget categoryItem() {
     child: Image.asset("assets/Icon_Devices.png"),
   );
 }
-//criar um widget da categoryList
 
-//criar um widget categoryItem - de altura e largura 70, de margem 10 e padding 10.
-//com boxShadow e borderRadius 64
-//scrollDirection: Axis.horizontal.
+Widget productList(context) {
+  return Container(
+    child: ListView(
+      scrollDirection: Axis.horizontal,
+      children: <Widget>[
+        productItem(context),
+        productItem(context),
+        productItem(context),
+      ],
+    ),
+  );
+}
+
+Widget productItem(context) {
+  return Container(
+    padding: EdgeInsets.all(10),
+    margin: EdgeInsets.all(10),
+    width: 170,
+    decoration: BoxDecoration(
+        color: Colors.black12,
+        borderRadius: BorderRadius.all(Radius.circular(9))),
+    child: GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ProductPage()));
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Image.asset(
+            "assets/product-7.png",
+            fit: BoxFit.cover,
+            width: 170,
+            height: 170,
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+            height: 60,
+            child: Text(
+              "Titulo do produto",
+              style: TextStyle(fontSize: 18),
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            "Marca",
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            "\$ 200",
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: Colors.green,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
