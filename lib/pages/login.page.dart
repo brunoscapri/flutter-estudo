@@ -69,7 +69,6 @@ class LoginPage extends StatelessWidget {
                         height: 60,
                       ),
                       TextFormField(
-                        autofocus: true,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           labelText: "Email",
@@ -86,7 +85,6 @@ class LoginPage extends StatelessWidget {
                         height: 10,
                       ),
                       TextFormField(
-                        autofocus: true,
                         keyboardType: TextInputType.emailAddress,
                         obscureText: true,
                         decoration: InputDecoration(
@@ -122,12 +120,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         child: FlatButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HomePage()));
-                          },
+                          onPressed: () {},
                           child: Text("Sign in"),
                         ),
                       )

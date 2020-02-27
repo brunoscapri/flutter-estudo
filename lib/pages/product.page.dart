@@ -54,12 +54,7 @@ class ProductPage extends StatelessWidget {
                   child: Container(
                     color: Colors.blue,
                     child: FlatButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => CartPage()));
-                        },
+                        onPressed: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[

@@ -48,7 +48,6 @@ class SignupPage extends StatelessWidget {
                   height: 30,
                 ),
                 TextFormField(
-                  autofocus: true,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(labelText: "Email"),
                 ),
@@ -80,10 +79,7 @@ class SignupPage extends StatelessWidget {
                     ),
                   ),
                   child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
-                    },
+                    onPressed: () {},
                     child: Text(
                       "Sign up",
                       style: TextStyle(color: Colors.white),
