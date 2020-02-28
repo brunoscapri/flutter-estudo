@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:layouts/pages/cart.page.dart';
 
 class ProductPage extends StatelessWidget {
   @override
