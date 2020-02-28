@@ -24,16 +24,26 @@ class ProductItem extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ProductPage()));
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ProductPage(
+                        image: image,
+                        description: description,
+                        title: title,
+                        price: price,
+                      )));
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Image.asset(
-              image,
-              fit: BoxFit.cover,
-              width: 170,
-              height: 170,
+            Hero(
+              tag: image,
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,
+                width: 170,
+                height: 170,
+              ),
             ),
             SizedBox(
               height: 15,

@@ -9,7 +9,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: Container(
-          color: Colors.white,
           child: Padding(
             padding: const EdgeInsets.only(left: 15, right: 15),
             child: Column(
@@ -24,10 +23,7 @@ class HomePage extends StatelessWidget {
                 ),
                 Text(
                   "Categories",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).textTheme.headline,
                 ),
                 SizedBox(
                   height: 20,
@@ -44,10 +40,7 @@ class HomePage extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       "Best Selling",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: Theme.of(context).textTheme.headline,
                     ),
                     FlatButton(
                       onPressed: () {},

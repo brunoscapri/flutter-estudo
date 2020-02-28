@@ -18,19 +18,22 @@ class TabsPage extends StatelessWidget {
         tabs: <Widget>[
           Tab(
             icon: new Icon(Icons.home),
+            text: "Home",
           ),
           Tab(
             icon: new Icon(Icons.shopping_cart),
+            text: "Cart",
           ),
           Tab(
             icon: Icon(Icons.perm_identity),
+            text: "Profile",
           ),
         ],
-        labelColor: Colors.blue,
+        labelColor: Theme.of(context).primaryColor,
         unselectedLabelColor: Colors.black38,
         indicatorSize: TabBarIndicatorSize.label,
         indicatorPadding: EdgeInsets.all(5),
-        indicatorColor: Colors.blue,
+        indicatorColor: Theme.of(context).primaryColor,
       ),
     );
   }

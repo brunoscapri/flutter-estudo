@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:layouts/pages/home.page.dart';
+
 import 'package:layouts/pages/singup.page.dart';
 
 class LoginPage extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>();
+  String _email;
+  String _password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          color: Color(0xFFF5F5F5),
           padding: EdgeInsets.only(
             top: 80,
             left: 20,
@@ -18,9 +21,9 @@ class LoginPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Container(
-                height: 450,
+                height: 451,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).accentColor,
                   borderRadius: new BorderRadius.all(Radius.circular(10)),
                   boxShadow: [
                     new BoxShadow(
@@ -32,99 +35,127 @@ class LoginPage extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: EdgeInsets.only(left: 15, right: 15, top: 40),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Column(
-                            children: <Widget>[
-                              Text(
-                                "Welcome,",
-                                style: TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Column(
+                              children: <Widget>[
+                                Text(
+                                  "Welcome,",
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "Sign in to continue",
-                                textAlign: TextAlign.left,
-                              ),
-                            ],
+                                Text(
+                                  "Sign in to continue",
+                                  textAlign: TextAlign.left,
+                                ),
+                              ],
+                            ),
+                            FlatButton(
+                              child: Text("Sign up",
+                                  style: TextStyle(
+                                      color: Theme.of(context).primaryColor)),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => SignupPage(),
+                                  ),
+                                );
+                              },
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 60,
+                        ),
+                        TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            labelText: "Email",
+                            labelStyle: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16),
                           ),
-                          FlatButton(
-                            child: Text("Sign up"),
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return "Empty e-mail field";
+                            }
+                            return null;
+                          },
+                          onSaved: (input) => _email = input,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            labelText: "Password",
+                            labelStyle: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16),
+                          ),
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return "Password field empty";
+                            }
+                            return null;
+                          },
+                          onSaved: (input) => _password = input,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          alignment: Alignment.centerRight,
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: Text("Forgot your password?"),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(6),
+                            ),
+                          ),
+                          child: FlatButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SignupPage(),
-                                ),
-                              );
+                              if (_formKey.currentState.validate()) {
+                                _formKey.currentState.save();
+                                print(_email);
+                                print(_password);
+
+                                Scaffold.of(context).showSnackBar(
+                                    SnackBar(content: Text("Hello, $_email")));
+                              }
                             },
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 60,
-                      ),
-                      TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          labelText: "Email",
-                          labelStyle: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16),
-                        ),
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: "Password",
-                          labelStyle: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16),
-                        ),
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        alignment: Alignment.centerRight,
-                        child: FlatButton(
-                          onPressed: () {},
-                          child: Text("Forgot your password?"),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(6),
+                            child: Text("Sign in"),
                           ),
-                        ),
-                        child: FlatButton(
-                          onPressed: () {},
-                          child: Text("Sign in"),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

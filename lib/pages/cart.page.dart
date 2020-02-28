@@ -9,7 +9,7 @@ class CartPage extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: Container(
-            color: Colors.white,
+            //color: Colors.white,
             height: 80,
             child: productList(),
           ),
@@ -38,7 +38,7 @@ class CartPage extends StatelessWidget {
                     Text(
                       "\$1234",
                       style: TextStyle(
-                        color: Colors.green[400],
+                        color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.w700,
                         fontSize: 20,
                       ),
@@ -49,7 +49,7 @@ class CartPage extends StatelessWidget {
                   height: 50,
                   width: 150,
                   decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.all(
                       Radius.circular(6),
                     ),
@@ -58,7 +58,7 @@ class CartPage extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       "Checkout",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Theme.of(context).accentColor),
                     ),
                   ),
                 )

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:layouts/pages/home.page.dart';
 
 class SignupPage extends StatelessWidget {
   @override
@@ -11,7 +10,6 @@ class SignupPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          color: Color(0xFFF5F5F5),
           padding: EdgeInsets.only(
             top: 40,
             left: 20,
